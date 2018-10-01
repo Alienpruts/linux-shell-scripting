@@ -9,17 +9,15 @@ function GetFiles() {
 function ShowFiles() {
 
     local COUNT=1
-    for FILE in $FILES
+
+    for FILE in $@
     do
-        if [ $FILE = "." ]; then
-            continue
-        elif [ $FILE = ".." ]; then
-            continue
-        fi
         echo "FILE # $COUNT: $FILE"
         ((COUNT++))
     done
 }
 
 GetFiles
-ShowFiles
+ShowFiles $FILES
+
+exit 0
